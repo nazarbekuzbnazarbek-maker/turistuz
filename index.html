@@ -1,0 +1,942 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Qashqa & Sir Travel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --bg:#090b0c; --bg2:#0e1213; --surface:rgba(255,255,255,.045); --surface2:rgba(255,255,255,.08);
+  --line:rgba(255,255,255,.11); --fg:#ecefe9; --muted:#9ba7a1;
+  --emerald:#2bb985; --gold:#e0a93b; --cyan:#59d4cf; --danger:#ff7a6b;
+  --font-display:'Marcellus','Iowan Old Style','Palatino Linotype',Georgia,serif;
+  --font-body:'Outfit','Segoe UI',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance;line-height:1.15}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(9,11,12,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:8px;font-family:var(--font-display);font-size:1.35rem;text-decoration:none;color:var(--fg);margin-right:auto}
+.brand i{font-style:normal;color:var(--gold)}
+.brand small{font-family:var(--font-body);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:4px}
+.nav a{color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;font-size:.92rem;transition:.2s}
+.nav a:hover{color:var(--fg);background:var(--surface)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{border:0;background:transparent;padding:5px 11px;border-radius:999px;font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--muted);transition:.2s}
+.lang button[aria-pressed=true]{background:var(--emerald);color:#04140d}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;background:linear-gradient(135deg,var(--emerald),#1f9a76);color:#04140d;font-weight:600;padding:10px 18px;border-radius:12px;transition:transform .18s,box-shadow .18s,background .2s;text-decoration:none;font-size:.93rem}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px rgba(43,185,133,.7)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:var(--surface);border-color:var(--line);color:var(--fg)}
+.btn.ghost:hover{background:var(--surface2);box-shadow:none}
+.btn.gold{background:linear-gradient(135deg,var(--gold),#c58d22);color:#1c1204}
+.btn.danger{background:rgba(255,122,107,.12);border-color:rgba(255,122,107,.4);color:var(--danger)}
+.btn.sm{padding:6px 12px;font-size:.82rem;border-radius:9px}
+.userchip{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.userchip b{color:var(--fg);font-weight:500}
+
+.hero{position:relative;padding-block:72px 56px;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+   radial-gradient(900px 420px at 85% -10%,rgba(224,169,59,.22),transparent 60%),
+   radial-gradient(700px 400px at 5% 110%,rgba(43,185,133,.2),transparent 60%),
+   radial-gradient(500px 300px at 50% 40%,rgba(89,212,207,.07),transparent 70%),var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 6l7 19 19 7-19 7-7 19-7-19-19-7 19-7z' fill='none' stroke='%23e0a93b' stroke-opacity='.13' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 85%);mask-image:linear-gradient(180deg,#000 10%,transparent 85%)}
+.hero .wrap{position:relative;z-index:1}
+.kicker{display:inline-flex;gap:10px;align-items:center;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(2.3rem,6vw,4.4rem);max-width:15ch;margin-bottom:18px}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--gold),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{max-width:56ch;color:var(--muted);font-size:1.08rem;margin-bottom:30px}
+.herorow{display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;max-width:760px}
+.search{position:relative;flex:1 1 320px;min-width:0}
+.search input{width:100%;height:56px;padding:22px 16px 6px 46px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);transition:border-color .2s,box-shadow .2s}
+.search input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(89,212,207,.14)}
+.search label{position:absolute;left:46px;top:17px;color:var(--muted);pointer-events:none;transition:.18s;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 60px)}
+.search input:focus+label,.search input:not(:placeholder-shown)+label{top:7px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.search svg{position:absolute;left:15px;top:17px;width:20px;height:20px;color:var(--muted)}
+.herorow .btn{height:56px;padding-inline:26px;border-radius:14px}
+.facts{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-family:var(--font-display);font-weight:400;font-size:2rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.facts span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+section{padding-block:60px 10px}
+.sechead{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;max-width:62ch}
+.sechead h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.sechead p{color:var(--muted)}
+.filters{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;padding:3px;background:var(--surface);flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:7px 14px;border-radius:999px;color:var(--muted);font-size:.9rem;transition:.2s}
+.seg button[aria-pressed=true]{background:var(--surface2);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.chip{border:1px solid var(--line);background:var(--surface);padding:7px 15px;border-radius:999px;font-size:.88rem;color:var(--muted);transition:.2s;display:inline-flex;gap:7px;align-items:center}
+.chip:hover{color:var(--fg);transform:translateY(-1px)}
+.chip[aria-pressed=true]{border-color:var(--gold);color:var(--gold);background:rgba(224,169,59,.1)}
+.chip i{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));backdrop-filter:blur(8px);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-5px);border-color:rgba(224,169,59,.45);box-shadow:0 22px 44px -24px rgba(0,0,0,.9),0 0 0 1px rgba(224,169,59,.15)}
+.media{position:relative;aspect-ratio:16/10;background-size:cover;background-position:center;transition:transform .5s}
+.mwrap{overflow:hidden;position:relative}
+.card:hover .media{transform:scale(1.05)}
+.mwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(9,11,12,.7));pointer-events:none}
+.tag,.views{position:absolute;z-index:2;font-size:.74rem;padding:4px 10px;border-radius:999px;background:rgba(9,11,12,.62);backdrop-filter:blur(8px);border:1px solid var(--line);letter-spacing:.04em}
+.tag{left:12px;top:12px;color:var(--cyan)}
+.views{right:12px;top:12px;color:var(--muted);display:flex;gap:5px;align-items:center;font-variant-numeric:tabular-nums}
+.cbody{display:flex;flex-direction:column;gap:10px;padding:16px 18px 18px;flex:1}
+.cats{display:flex;gap:6px;flex-wrap:wrap}
+.cats span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.cats span+span::before{content:"·";margin-right:6px;color:var(--muted)}
+.card h3{font-size:1.4rem}
+.card p.d{color:var(--muted);font-size:.93rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dishline{font-size:.86rem;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.dishline b{font-weight:500;color:var(--emerald);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.meta{display:flex;gap:14px;color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.meta span{display:flex;gap:6px;align-items:center}
+.actions{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+.actions .btn{flex:1;padding:9px 12px}
+.empty{grid-column:1/-1;text-align:center;padding:50px 10px;color:var(--muted);border:1px dashed var(--line);border-radius:18px}
+
+.foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:20px}
+.fcard{display:grid;grid-template-columns:150px 1fr;min-width:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface);transition:border-color .25s,transform .25s}
+.fcard:hover{border-color:rgba(43,185,133,.5);transform:translateY(-3px)}
+.fcard .fimg{background-size:cover;background-position:center;min-height:100%}
+.fcard .fb{padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fcard h3{font-size:1.3rem}
+.fcard .reg{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.fcard .lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.fcard p{font-size:.9rem;color:var(--muted)}
+.ings{display:flex;gap:6px;flex-wrap:wrap}
+.ings span{font-size:.78rem;padding:3px 10px;border-radius:999px;background:rgba(43,185,133,.1);border:1px solid rgba(43,185,133,.25);color:#9ae6c6}
+footer{margin-top:70px;border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.85rem}
+
+.overlay{position:fixed;inset:0;z-index:100;background:rgba(4,6,6,.74);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));animation:fade .2s}
+.modal{position:relative;width:min(100%,720px);max-height:100%;overflow-y:auto;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,#141a1b,#0c1011);box-shadow:0 40px 90px -30px #000;animation:pop .28s cubic-bezier(.2,.9,.3,1.15)}
+.modal.narrow{width:min(100%,440px)}
+.modal.wide{width:min(100%,1000px)}
+.mclose{position:absolute;right:12px;top:12px;z-index:5;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:rgba(9,11,12,.7);display:grid;place-items:center;font-size:1.2rem;line-height:1;transition:.2s}
+.mclose:hover{background:var(--surface2);transform:rotate(90deg)}
+.mhero{aspect-ratio:21/8;background-size:cover;background-position:center;position:relative}
+.mhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,#141a1b)}
+.mbody{padding:22px 26px 26px;display:flex;flex-direction:column;gap:16px}
+.mbody h2{font-size:clamp(1.6rem,4vw,2.1rem)}
+.mbody .lead{color:#c5cdc8}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kv div{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;min-width:0}
+.kv small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.kv b{font-family:var(--font-display);font-weight:400;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.callout{border:1px solid rgba(43,185,133,.3);background:rgba(43,185,133,.07);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.callout h4{margin:0;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);font-weight:500}
+.callout strong{font-family:var(--font-display);font-weight:400;font-size:1.2rem}
+.callout p{font-size:.92rem;color:#b9c4be}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.steps li{position:relative;padding:0 0 18px 44px;min-width:0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold);font-size:.82rem;background:rgba(224,169,59,.08)}
+.steps li::after{content:"";position:absolute;left:14.5px;top:34px;bottom:4px;width:1px;background:linear-gradient(var(--gold),transparent);opacity:.4}
+.steps li:last-child::after{display:none}
+.steps{counter-reset:s}
+.line{display:flex;align-items:center;gap:0;padding:6px 4px}
+.line .node{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.78rem;color:var(--muted);min-width:0;text-align:center}
+.line .node i{width:14px;height:14px;border-radius:50%;border:3px solid var(--emerald);background:var(--bg)}
+.line .node.end i{border-color:var(--gold)}
+.line .bar{flex:1;height:2px;margin:0 8px 18px;background:repeating-linear-gradient(90deg,var(--cyan) 0 8px,transparent 8px 14px);position:relative}
+.line .bar span{position:absolute;left:50%;top:-24px;transform:translateX(-50%);font-size:.8rem;color:var(--cyan);white-space:nowrap;font-variant-numeric:tabular-nums}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+
+.form{display:flex;flex-direction:column;gap:14px}
+.fld{display:flex;flex-direction:column;gap:5px;min-width:0}
+.fld>span,.fld>legend{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fld input,.fld select,.fld textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:11px;padding:10px 12px;min-width:0}
+.fld textarea{min-height:84px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(89,212,207,.13)}
+.fld select option{background:#121819}
+.tri{display:grid;gap:8px}
+.tri label{display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:start}
+.tri b{font-size:.72rem;letter-spacing:.1em;color:var(--gold);padding-top:11px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.checks{display:flex;gap:8px;flex-wrap:wrap}
+.checks label{display:flex;gap:7px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.88rem;cursor:pointer;background:var(--surface)}
+.checks input{accent-color:var(--gold)}
+.err{color:var(--danger);font-size:.88rem;min-height:1.2em}
+.hint{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;gap:6px;margin:20px 26px 0;padding-right:44px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--surface);padding:8px 16px;border-radius:999px;color:var(--muted);font-size:.9rem;transition:.2s}
+.tabs button[aria-pressed=true]{background:var(--emerald);border-color:var(--emerald);color:#04140d;font-weight:500}
+.adminbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface)}
+.tile small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tile b{font-family:var(--font-display);font-weight:400;font-size:2.1rem;font-variant-numeric:tabular-nums;line-height:1.2}
+.tile.g b{color:var(--gold)}.tile.e b{color:var(--emerald)}.tile.c b{color:var(--cyan)}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.panel{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface);min-width:0}
+.panel h4{margin:0 0 12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:4px 10px;margin-bottom:11px;font-size:.88rem;font-variant-numeric:tabular-nums}
+.bar-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-row em{font-style:normal;text-align:right;color:var(--muted)}
+.bar-row div{grid-column:1/-1;height:6px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar-row div i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--emerald),var(--cyan));transition:width .6s}
+.bar-row.gold div i{background:linear-gradient(90deg,var(--gold),#f3cd7a)}
+.list{display:flex;flex-direction:column;gap:8px}
+.item{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--surface);flex-wrap:wrap}
+.item .th{width:64px;height:44px;border-radius:99px;background-size:cover;background-position:center;flex:none}
+.item .tx{flex:1;min-width:140px}
+.item .tx b{display:block;font-weight:500}
+.item .tx small{color:var(--muted)}
+.item .btns{display:flex;gap:6px}
+.note{font-size:.8rem;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;z-index:200;background:#161d1e;border:1px solid var(--emerald);color:var(--fg);padding:11px 20px;border-radius:12px;transition:.3s;pointer-events:none;max-width:calc(100% - 32px);text-align:center;box-shadow:0 14px 40px -12px #000}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:720px){
+  .nav{display:none}
+  .hero{padding-block:48px 40px}
+  .fcard{grid-template-columns:1fr}
+  .fcard .fimg{height:140px;min-height:0}
+  .mbody{padding:18px 18px 22px}
+  .tabs{margin:18px 18px 0}
+  .top .wrap{gap:10px}
+  .brand small{display:none}
+}
+
+@media(max-width:600px){
+  body{font-size:15px;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .wrap{padding-left:14px;padding-right:14px}
+  .top .wrap{padding-block:9px;gap:8px}
+  .brand{font-size:1.18rem;line-height:1.2}
+  .lang{margin-left:auto}
+  .lang button{padding:6px 9px;min-height:34px}
+  .tools{width:100%;gap:7px}
+  .tools .btn{flex:1;min-height:40px;padding:8px 10px}
+  .hero{padding-block:34px 30px}
+  .kicker{font-size:.66rem;letter-spacing:.14em;margin-bottom:13px}
+  .hero h1{font-size:clamp(2rem,10vw,2.8rem);margin-bottom:13px;max-width:12ch}
+  .hero .sub{font-size:.96rem;margin-bottom:22px;line-height:1.55}
+  .herorow{display:grid;grid-template-columns:1fr;gap:10px}
+  .search input{height:54px}
+  .herorow .btn{height:50px;width:100%;padding-inline:16px}
+  .facts{gap:0;justify-content:space-between;margin-top:25px}
+  .facts div{flex:1;min-width:0}
+  .facts b{font-size:1.55rem}
+  .facts span{font-size:.62rem;letter-spacing:.08em}
+  section{padding-block:38px 4px}
+  .sechead{margin-bottom:19px}
+  .sechead h2{font-size:1.7rem}
+  .sechead p{font-size:.9rem}
+  .filters{gap:9px;margin-bottom:18px}
+  .row{gap:7px}
+  .seg{width:100%;display:grid;grid-template-columns:1fr 1fr 1fr}
+  .seg button{padding:8px 5px;font-size:.78rem}
+  .chip{padding:7px 11px;font-size:.8rem}
+  .grid{grid-template-columns:1fr;gap:14px}
+  .card{border-radius:16px}
+  .media{aspect-ratio:16/9}
+  .cbody{padding:14px 15px 15px;gap:9px}
+  .card h3{font-size:1.3rem}
+  .card p.d{font-size:.9rem}
+  .actions{gap:8px}
+  .actions .btn{min-height:42px;padding:9px 8px;font-size:.84rem}
+  .foodgrid{grid-template-columns:1fr;gap:13px}
+  .fcard{grid-template-columns:108px minmax(0,1fr);border-radius:15px}
+  .fcard .fimg{height:auto;min-height:150px}
+  .fcard .fb{padding:12px;gap:7px}
+  .fcard h3{font-size:1.1rem}
+  .fcard p{font-size:.82rem}
+  .ings span{font-size:.72rem;padding:3px 7px}
+  footer{margin-top:42px;padding-block:22px 28px;font-size:.78rem}
+  .overlay{align-items:flex-end;padding:8px 8px max(8px,env(safe-area-inset-bottom,0px))}
+  .modal,.modal.narrow,.modal.wide{width:100%;max-width:100%;max-height:92dvh;border-radius:22px 22px 14px 14px}
+  .mhero{aspect-ratio:16/7}
+  .mbody{padding:16px 15px 20px;gap:13px}
+  .kv{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kv div{padding:10px}
+  .kv b{font-size:1.1rem}
+  .tabs{margin:14px 14px 0;padding-right:36px;gap:5px}
+  .tabs button{padding:8px 11px;font-size:.82rem}
+  .two{grid-template-columns:1fr}
+  .fld input,.fld select,.fld textarea{font-size:16px;padding:12px}
+  .btnrow{display:grid;grid-template-columns:1fr}
+  .btnrow .btn{min-height:44px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile{padding:12px}
+  .tile b{font-size:1.7rem}
+}
+@media(max-width:360px){
+  .brand{font-size:1.05rem}
+  .lang button{padding-inline:7px}
+  .fcard{grid-template-columns:1fr}
+  .fcard .fimg{height:125px;min-height:0}
+  .actions{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span>Qashqa<i>&amp;</i>Sir</span><small data-i18n="brandSub"></small></a>
+    <nav class="nav">
+      <a href="#explore" data-i18n="navExplore"></a>
+      <a href="#food" data-i18n="navFood"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="uz" aria-pressed="false">UZ</button>
+      <button data-lang="ru" aria-pressed="false">RU</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <div class="tools" id="tools"></div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker" data-i18n="kicker"></div>
+      <h1 id="heroTitle"></h1>
+      <p class="sub" data-i18n="heroSub"></p>
+      <div class="herorow">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder=" " autocomplete="off">
+          <label for="q" data-i18n="searchLbl"></label>
+        </div>
+        <a class="btn gold" href="#explore" data-i18n="cta"></a>
+      </div>
+      <div class="facts">
+        <div><b id="nDest">0</b><span data-i18n="statDest"></span></div>
+        <div><b id="nDish">0</b><span data-i18n="statDish"></span></div>
+        <div><b>2</b><span data-i18n="statReg"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="explore">
+    <div class="wrap">
+      <div class="sechead"><h2 data-i18n="exploreTitle"></h2><p data-i18n="exploreSub"></p></div>
+      <div class="filters">
+        <div class="row"><div class="seg" id="regionSeg"></div></div>
+        <div class="row" id="chips"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="food">
+    <div class="wrap">
+      <div class="sechead"><h2 data-i18n="foodTitle"></h2><p data-i18n="foodSub"></p></div>
+      <div class="foodgrid" id="foodgrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" data-i18n="footer"></div></footer>
+
+<div class="overlay" id="overlay" hidden><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var LANGS=['uz','ru','en'];
+var mem={};
+function sGet(k){try{return localStorage.getItem(k)}catch(e){return mem[k]||null}}
+function sSet(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+var T={
+en:{brandSub:'Travel Uzbekistan',navExplore:'Destinations',navFood:'Cuisine',login:'Log in',register:'Sign up',logout:'Log out',admin:'Admin',
+kicker:'Qashqadaryo · Sirdaryo',heroTitle:'Two regions, one long <em>road</em> through Uzbekistan',heroSub:'Gate towers of Amir Temur\'s palace, quiet pilgrimage sites, wide river banks and the dishes cooked along the way.',
+searchLbl:'Search places, dishes, regions',cta:'Start exploring',statDest:'places',statDish:'dishes',statReg:'regions',
+exploreTitle:'Places worth the drive',exploreSub:'Pick a region, filter by what you want to see, and open any card for the full story and directions.',
+foodTitle:'What to eat on the road',foodSub:'Dishes tied to these two regions, with what goes into them and where locals go to eat them.',
+all:'All',r_qashqadaryo:'Qashqadaryo',r_sirdaryo:'Sirdaryo',c_pilgrim:'Pilgrimage',c_nature:'Nature',c_history:'History',c_food:'National food',
+details:'Details',route:'Get route',dish:'Local dish',km:'km',h:'h',min:'min',distance:'Distance',duration:'Travel time',transport:'Transport',
+car:'Car',train:'Train',both:'Car, or train + taxi',steps:'Directions',openMaps:'Open in Google Maps',viewOnMap:'View place on map',back:'Back to details',close:'Close',
+fromTk:'from Tashkent',ingredients:'Ingredients',story:'Background',where:'Where to try it',noResults:'Nothing matches your search. Try another word or clear the filters.',views:'views',
+authTitle:'Welcome to the road',authSub:'Save your account to keep favourite routes in one place.',tabLogin:'Log in',tabReg:'Create account',emailL:'Email',passL:'Password',nameL:'Full name',
+submitLogin:'Log in',submitReg:'Create account',errFill:'Fill in all fields.',errCreds:'Email or password is incorrect.',errExists:'This email is already registered.',errPass:'Use at least 6 characters.',welcome:'Welcome, ',loggedOut:'You are logged out.',
+adminTitle:'Admin sign in',adminSub:'Manage places, dishes and see live numbers.',adminUser:'Username',adminPass:'Passcode',adminHint:'Demo access: admin / admin123',adminWrong:'Wrong username or passcode.',adminExit:'Exit admin',adminOn:'Admin mode on.',
+dash:'Dashboard',tabDest:'Places',tabFood:'Dishes',totalViews:'Total views',totalDest:'Registered places',totalDish:'Dishes listed',routeOpens:'Route requests',members:'Members',popular:'Popular routes',mostViewed:'Most viewed places',
+demoNote:'Starting figures are demo values. New views and route requests are counted live in this browser.',addNew:'Add new',edit:'Edit',del:'Delete',confirmDel:'Click again to delete',save:'Save',cancel:'Cancel',reset:'Restore sample data',resetDone:'Sample data restored.',saved:'Saved.',deleted:'Deleted.',
+fName:'Name',fDesc:'Description',fRegion:'Region',fCats:'Categories',fDist:'Distance from Tashkent (km)',fHours:'Travel time (hours)',fTransport:'Transport',fScene:'Image style',fDish:'Linked dish',fSteps:'Directions (one step per line)',fMaps:'Google Maps search text',fIng:'Ingredients (comma separated)',fStory:'Background',fWhere:'Where to try it',needName:'Add a name in at least one language.',none:'None',
+newDest:'New place',editDest:'Edit place',newDish:'New dish',editDish:'Edit dish',
+s_palace:'Palace gate',s_mosque:'Blue dome',s_shrine:'Shrine',s_nature:'Mountains',s_bridge:'Bridge',s_dam:'Reservoir',s_river:'Riverbank',s_dish:'Dish',
+footer:'Distances and travel times are approximate. Check opening hours and road conditions before you set off.',emptyList:'Nothing here yet.'},
+ru:{brandSub:'Путешествия по Узбекистану',navExplore:'Места',navFood:'Кухня',login:'Войти',register:'Регистрация',logout:'Выйти',admin:'Админ',
+kicker:'Кашкадарья · Сырдарья',heroTitle:'Два региона, одна долгая <em>дорога</em> по Узбекистану',heroSub:'Башни дворца Амира Темура, тихие места паломничества, широкие берега рек и блюда, которые готовят по пути.',
+searchLbl:'Поиск мест, блюд, регионов',cta:'Начать путешествие',statDest:'мест',statDish:'блюд',statReg:'региона',
+exploreTitle:'Места, ради которых стоит ехать',exploreSub:'Выберите регион, отфильтруйте по интересам и откройте карточку, чтобы узнать историю и маршрут.',
+foodTitle:'Что попробовать в дороге',foodSub:'Блюда этих двух регионов: из чего они сделаны и где их едят местные.',
+all:'Все',r_qashqadaryo:'Кашкадарья',r_sirdaryo:'Сырдарья',c_pilgrim:'Зиярат',c_nature:'Природа',c_history:'История',c_food:'Национальная кухня',
+details:'Подробнее',route:'Маршрут',dish:'Местное блюдо',km:'км',h:'ч',min:'мин',distance:'Расстояние',duration:'Время в пути',transport:'Транспорт',
+car:'Авто',train:'Поезд',both:'Авто или поезд + такси',steps:'Как добраться',openMaps:'Открыть в Google Maps',viewOnMap:'Показать место на карте',back:'Назад к описанию',close:'Закрыть',
+fromTk:'от Ташкента',ingredients:'Ингредиенты',story:'История блюда',where:'Где попробовать',noResults:'Ничего не найдено. Попробуйте другое слово или сбросьте фильтры.',views:'просмотров',
+authTitle:'Добро пожаловать в дорогу',authSub:'Создайте аккаунт, чтобы хранить любимые маршруты в одном месте.',tabLogin:'Вход',tabReg:'Регистрация',emailL:'Эл. почта',passL:'Пароль',nameL:'Имя и фамилия',
+submitLogin:'Войти',submitReg:'Создать аккаунт',errFill:'Заполните все поля.',errCreds:'Неверная почта или пароль.',errExists:'Эта почта уже зарегистрирована.',errPass:'Минимум 6 символов.',welcome:'Добро пожаловать, ',loggedOut:'Вы вышли из аккаунта.',
+adminTitle:'Вход для администратора',adminSub:'Управляйте местами и блюдами, смотрите статистику.',adminUser:'Логин',adminPass:'Пароль доступа',adminHint:'Демо-доступ: admin / admin123',adminWrong:'Неверный логин или пароль.',adminExit:'Выйти из админки',adminOn:'Режим администратора включён.',
+dash:'Сводка',tabDest:'Места',tabFood:'Блюда',totalViews:'Всего просмотров',totalDest:'Мест в каталоге',totalDish:'Блюд в каталоге',routeOpens:'Запросов маршрута',members:'Участников',popular:'Популярные маршруты',mostViewed:'Самые просматриваемые места',
+demoNote:'Начальные цифры демонстрационные. Новые просмотры и маршруты считаются в этом браузере в реальном времени.',addNew:'Добавить',edit:'Изменить',del:'Удалить',confirmDel:'Нажмите ещё раз для удаления',save:'Сохранить',cancel:'Отмена',reset:'Вернуть примеры',resetDone:'Примеры данных восстановлены.',saved:'Сохранено.',deleted:'Удалено.',
+fName:'Название',fDesc:'Описание',fRegion:'Регион',fCats:'Категории',fDist:'Расстояние от Ташкента (км)',fHours:'Время в пути (часы)',fTransport:'Транспорт',fScene:'Стиль изображения',fDish:'Связанное блюдо',fSteps:'Маршрут (один шаг на строку)',fMaps:'Запрос для Google Maps',fIng:'Ингредиенты (через запятую)',fStory:'История блюда',fWhere:'Где попробовать',needName:'Укажите название хотя бы на одном языке.',none:'Нет',
+newDest:'Новое место',editDest:'Изменить место',newDish:'Новое блюдо',editDish:'Изменить блюдо',
+s_palace:'Ворота дворца',s_mosque:'Синий купол',s_shrine:'Мавзолей',s_nature:'Горы',s_bridge:'Мост',s_dam:'Водохранилище',s_river:'Берег реки',s_dish:'Блюдо',
+footer:'Расстояния и время в пути приблизительны. Перед поездкой уточните часы работы и состояние дорог.',emptyList:'Пока пусто.'},
+uz:{brandSub:'O\'zbekiston bo\'ylab sayohat',navExplore:'Manzillar',navFood:'Taomlar',login:'Kirish',register:'Ro\'yxatdan o\'tish',logout:'Chiqish',admin:'Admin',
+kicker:'Qashqadaryo · Sirdaryo',heroTitle:'Ikki viloyat, O\'zbekiston bo\'ylab bitta uzun <em>yo\'l</em>',heroSub:'Amir Temur saroyining darvoza minoralari, sokin ziyoratgohlar, keng daryo qirg\'oqlari va yo\'l bo\'yidagi mazali taomlar.',
+searchLbl:'Joy, taom, viloyat qidirish',cta:'Sayohatni boshlash',statDest:'manzil',statDish:'taom',statReg:'viloyat',
+exploreTitle:'Yo\'l tortishga arziydigan joylar',exploreSub:'Viloyatni tanlang, qiziqishingiz bo\'yicha saralang va to\'liq hikoya hamda yo\'nalish uchun kartani oching.',
+foodTitle:'Yo\'lda nimani tatib ko\'rish kerak',foodSub:'Shu ikki viloyatga xos taomlar: tarkibi va mahalliy aholi ularni qayerda yeyishi.',
+all:'Hammasi',r_qashqadaryo:'Qashqadaryo',r_sirdaryo:'Sirdaryo',c_pilgrim:'Ziyoratgohlar',c_nature:'Tabiat',c_history:'Tarixiy',c_food:'Milliy taomlar',
+details:'Batafsil',route:'Xarita va marshrut',dish:'Mahalliy taom',km:'km',h:'soat',min:'daq',distance:'Masofa',duration:'Yo\'l vaqti',transport:'Transport',
+car:'Avtomobil',train:'Poyezd',both:'Avtomobil yoki poyezd + taksi',steps:'Yo\'nalish',openMaps:'Google Maps\'da ochish',viewOnMap:'Joyni xaritada ko\'rish',back:'Batafsilga qaytish',close:'Yopish',
+fromTk:'Toshkentdan',ingredients:'Tarkibi',story:'Tarixi',where:'Qayerda tatib ko\'rish mumkin',noResults:'Hech narsa topilmadi. Boshqa so\'z kiriting yoki filtrlarni tozalang.',views:'ko\'rish',
+authTitle:'Yo\'lga xush kelibsiz',authSub:'Sevimli yo\'nalishlaringizni bir joyda saqlash uchun hisob yarating.',tabLogin:'Kirish',tabReg:'Hisob yaratish',emailL:'Elektron pochta',passL:'Parol',nameL:'Ism va familiya',
+submitLogin:'Kirish',submitReg:'Hisob yaratish',errFill:'Barcha maydonlarni to\'ldiring.',errCreds:'Pochta yoki parol noto\'g\'ri.',errExists:'Bu pochta allaqachon ro\'yxatdan o\'tgan.',errPass:'Kamida 6 ta belgi kiriting.',welcome:'Xush kelibsiz, ',loggedOut:'Hisobdan chiqdingiz.',
+adminTitle:'Administrator kirishi',adminSub:'Joylar va taomlarni boshqaring, jonli ko\'rsatkichlarni ko\'ring.',adminUser:'Login',adminPass:'Kirish paroli',adminHint:'Demo kirish: admin / admin123',adminWrong:'Login yoki parol noto\'g\'ri.',adminExit:'Admindan chiqish',adminOn:'Administrator rejimi yoqildi.',
+dash:'Boshqaruv paneli',tabDest:'Manzillar',tabFood:'Taomlar',totalViews:'Jami ko\'rishlar',totalDest:'Ro\'yxatdagi manzillar',totalDish:'Ro\'yxatdagi taomlar',routeOpens:'Marshrut so\'rovlari',members:'A\'zolar',popular:'Mashhur marshrutlar',mostViewed:'Eng ko\'p ko\'rilgan joylar',
+demoNote:'Boshlang\'ich raqamlar demo qiymatlar. Yangi ko\'rishlar va marshrut so\'rovlari shu brauzerda jonli hisoblanadi.',addNew:'Qo\'shish',edit:'Tahrirlash',del:'O\'chirish',confirmDel:'O\'chirish uchun yana bosing',save:'Saqlash',cancel:'Bekor qilish',reset:'Namunaviy ma\'lumotlarni tiklash',resetDone:'Namunaviy ma\'lumotlar tiklandi.',saved:'Saqlandi.',deleted:'O\'chirildi.',
+fName:'Nomi',fDesc:'Tavsif',fRegion:'Viloyat',fCats:'Toifalar',fDist:'Toshkentdan masofa (km)',fHours:'Yo\'l vaqti (soat)',fTransport:'Transport',fScene:'Rasm uslubi',fDish:'Bog\'langan taom',fSteps:'Yo\'nalish (har qatorda bitta qadam)',fMaps:'Google Maps qidiruv matni',fIng:'Tarkibi (vergul bilan)',fStory:'Tarixi',fWhere:'Qayerda tatib ko\'rish mumkin',needName:'Kamida bitta tilda nom kiriting.',none:'Yo\'q',
+newDest:'Yangi manzil',editDest:'Manzilni tahrirlash',newDish:'Yangi taom',editDish:'Taomni tahrirlash',
+s_palace:'Saroy darvozasi',s_mosque:'Ko\'k gumbaz',s_shrine:'Ziyoratgoh',s_nature:'Tog\'lar',s_bridge:'Ko\'prik',s_dam:'Suv ombori',s_river:'Daryo bo\'yi',s_dish:'Taom',
+footer:'Masofa va yo\'l vaqti taxminiy. Yo\'lga chiqishdan oldin ish vaqti va yo\'l holatini aniqlang.',emptyList:'Hozircha bo\'sh.'}
+};
+var lang=(function(){var l=sGet('qs_lang');return LANGS.indexOf(l)>-1?l:'uz'})();
+function t(k){return (T[lang]&&T[lang][k])||T.en[k]||k}
+function L(o){if(!o)return '';return o[lang]||o.en||o.uz||o.ru||''}
+
+function wrapSvg(inner,top,bot){
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+top+'"/><stop offset="1" stop-color="'+bot+'"/></linearGradient><radialGradient id="r" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f6d27a" stop-opacity=".9"/><stop offset="1" stop-color="#f6d27a" stop-opacity="0"/></radialGradient></defs><rect width="800" height="500" fill="url(#g)"/>'+inner+'</svg>';
+}
+function dome(col,rib){
+  return '<circle cx="600" cy="120" r="90" fill="url(#r)"/><circle cx="600" cy="120" r="32" fill="#f6d27a"/>'+
+  '<rect y="420" width="800" height="80" fill="#0b0f0e"/>'+
+  '<rect x="150" y="190" width="30" height="240" fill="#2a2418"/><path d="M146 190q19-44 38 0z" fill="'+col+'"/><rect x="150" y="230" width="30" height="5" fill="'+rib+'"/><rect x="150" y="270" width="30" height="5" fill="'+rib+'"/>'+
+  '<rect x="620" y="190" width="30" height="240" fill="#2a2418"/><path d="M616 190q19-44 38 0z" fill="'+col+'"/><rect x="620" y="230" width="30" height="5" fill="'+rib+'"/><rect x="620" y="270" width="30" height="5" fill="'+rib+'"/>'+
+  '<rect x="250" y="320" width="300" height="110" fill="#2a2418"/><rect x="250" y="320" width="300" height="8" fill="'+rib+'"/>'+
+  '<path d="M262 322Q400 70 538 322Z" fill="'+col+'"/><path d="M400 90v-30" stroke="'+rib+'" stroke-width="4"/><circle cx="400" cy="56" r="7" fill="'+rib+'"/>'+
+  '<path d="M330 322Q352 170 400 100M470 322Q448 170 400 100M400 322V100" stroke="#000" stroke-opacity=".22" stroke-width="2" fill="none"/>'+
+  '<path d="M355 430V365q45-60 90 0v65z" fill="#0b0f0e"/>';
+}
+var SCENES={
+  palace:function(){return wrapSvg('<circle cx="640" cy="130" r="95" fill="url(#r)"/><circle cx="640" cy="130" r="34" fill="#f6d27a"/>'+
+    '<rect y="430" width="800" height="70" fill="#120c06"/>'+
+    '<rect x="170" y="110" width="150" height="330" fill="#3b2a14"/><rect x="480" y="110" width="150" height="330" fill="#3b2a14"/>'+
+    '<rect x="170" y="110" width="150" height="16" fill="#2bb7ad"/><rect x="480" y="110" width="150" height="16" fill="#2bb7ad"/>'+
+    '<rect x="170" y="160" width="150" height="6" fill="#e0a93b"/><rect x="480" y="160" width="150" height="6" fill="#e0a93b"/>'+
+    '<rect x="170" y="210" width="150" height="46" fill="#1d6f7a" opacity=".65"/><rect x="480" y="210" width="150" height="46" fill="#1d6f7a" opacity=".65"/>'+
+    '<rect x="170" y="300" width="150" height="6" fill="#e0a93b"/><rect x="480" y="300" width="150" height="6" fill="#e0a93b"/>'+
+    '<path d="M320 440V270Q400 130 480 270V440z" fill="#120c06"/><path d="M338 440V282Q400 170 462 282V440z" fill="#1c1409"/>'+
+    '<path d="M320 270Q400 130 480 270" fill="none" stroke="#e0a93b" stroke-width="5"/>','#2a1a3d','#e68a3a')},
+  mosque:function(){return wrapSvg(dome('#1f9fb0','#e0a93b'),'#0e2433','#2b7a78')},
+  shrine:function(){return wrapSvg(dome('#c99a3e','#2bb985'),'#14261f','#c99a3e')},
+  nature:function(){return wrapSvg('<circle cx="560" cy="150" r="80" fill="url(#r)"/><circle cx="560" cy="150" r="26" fill="#f6d27a"/>'+
+    '<polygon points="0,330 130,220 240,300 380,170 520,290 650,200 800,320 800,500 0,500" fill="#1e3b34"/>'+
+    '<polygon points="380,170 340,230 372,222 390,262 420,226 452,236" fill="#c8d9d2" opacity=".35"/>'+
+    '<polygon points="0,400 160,300 300,380 460,280 620,390 800,310 800,500 0,500" fill="#10241f"/>'+
+    '<polygon points="0,455 200,400 380,450 560,410 800,455 800,500 0,500" fill="#0a1713"/>','#0b2430','#2a6b5a')},
+  bridge:function(){return wrapSvg('<circle cx="170" cy="160" r="90" fill="url(#r)"/><circle cx="170" cy="160" r="30" fill="#f6d27a"/>'+
+    '<rect y="340" width="800" height="160" fill="#0e2c33"/>'+
+    '<path d="M0 360h800M0 395h800M0 430h800M0 465h800" stroke="#59d4cf" stroke-opacity=".18" stroke-width="2"/>'+
+    '<rect y="250" width="800" height="18" fill="#150f24"/><rect y="235" width="800" height="4" fill="#e0a93b" opacity=".8"/>'+
+    '<path d="M0 340Q100 250 200 340M200 340Q300 250 400 340M400 340Q500 250 600 340M600 340Q700 250 800 340" fill="none" stroke="#150f24" stroke-width="14"/>'+
+    '<rect x="190" y="268" width="20" height="80" fill="#150f24"/><rect x="390" y="268" width="20" height="80" fill="#150f24"/><rect x="590" y="268" width="20" height="80" fill="#150f24"/>'+
+    '<path d="M0 340h800" stroke="#e0a93b" stroke-opacity=".4"/>','#1b1740','#e0813c')},
+  dam:function(){return wrapSvg('<circle cx="640" cy="170" r="80" fill="url(#r)"/><circle cx="640" cy="170" r="26" fill="#f6d27a"/>'+
+    '<polygon points="0,330 150,290 320,325 520,285 800,330 800,350 0,350" fill="#10303a"/>'+
+    '<rect y="345" width="800" height="155" fill="#0d4a52"/>'+
+    '<path d="M0 380h800M0 415h800M0 450h800" stroke="#59d4cf" stroke-opacity=".25" stroke-width="2" stroke-dasharray="40 30"/>'+
+    '<polygon points="90,345 710,345 680,410 120,410" fill="#7b8884"/><polygon points="120,410 680,410 700,430 100,430" fill="#46514f"/>'+
+    '<rect x="380" y="300" width="40" height="45" fill="#8c9a96"/><rect x="392" y="280" width="16" height="20" fill="#e0a93b"/>','#0a2230','#3aa59a')},
+  river:function(){return wrapSvg('<circle cx="400" cy="205" r="120" fill="url(#r)"/><circle cx="400" cy="205" r="34" fill="#f6d27a"/>'+
+    '<rect y="260" width="800" height="240" fill="#14352c"/>'+
+    '<path d="M0 300Q100 285 200 300T400 300T600 300T800 300M0 345Q100 330 200 345T400 345T600 345T800 345M0 395Q100 380 200 395T400 395T600 395T800 395" fill="none" stroke="#e0a93b" stroke-opacity=".35" stroke-width="3"/>'+
+    '<path d="M370 270h60M355 300h90M330 340h140" stroke="#f6d27a" stroke-opacity=".5" stroke-width="4" stroke-linecap="round"/>'+
+    '<g stroke="#07130e" stroke-width="3"><path d="M40 500V380M70 500V350M100 500V390M130 500V365M700 500V370M730 500V345M760 500V385"/></g>'+
+    '<g fill="#07130e"><ellipse cx="40" cy="378" rx="7" ry="22"/><ellipse cx="70" cy="348" rx="7" ry="22"/><ellipse cx="100" cy="388" rx="7" ry="22"/><ellipse cx="130" cy="363" rx="7" ry="22"/><ellipse cx="700" cy="368" rx="7" ry="22"/><ellipse cx="730" cy="343" rx="7" ry="22"/><ellipse cx="760" cy="383" rx="7" ry="22"/></g>','#0f2a22','#d9a441')},
+  dish:function(){return wrapSvg('<circle cx="400" cy="250" r="260" fill="#2bb985" opacity=".07"/>'+
+    '<ellipse cx="400" cy="360" rx="230" ry="50" fill="#000" opacity=".4"/>'+
+    '<path d="M180 270h440q0 120-120 130h-200q-120-10-120-130z" fill="#e0a93b"/>'+
+    '<ellipse cx="400" cy="270" rx="220" ry="40" fill="#8a5a17"/><ellipse cx="400" cy="268" rx="190" ry="30" fill="#c4781f"/>'+
+    '<circle cx="340" cy="262" r="14" fill="#e8c06a"/><circle cx="400" cy="272" r="16" fill="#b05d14"/><circle cx="460" cy="262" r="13" fill="#e8c06a"/><circle cx="430" cy="255" r="9" fill="#2bb985"/><circle cx="370" cy="278" r="9" fill="#2bb985"/>'+
+    '<path d="M330 220q-20-40 0-70t0-60M400 215q-22-44 0-78t0-64M470 220q-18-40 0-70t0-60" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"/>','#1a1410','#0c0a09')}
+};
+var sceneCache={};
+function scene(k){
+  if(!SCENES[k])k='nature';
+  if(!sceneCache[k]){
+    var s=SCENES[k]();
+    sceneCache[k]='url(data:image/svg+xml;utf8,'+encodeURIComponent(s).replace(/'/g,'%27').replace(/\(/g,'%28').replace(/\)/g,'%29')+')';
+  }
+  return sceneCache[k];
+}
+
+function southSteps(){return {
+ en:['Leave Tashkent on the highway toward Samarkand (Afrosiyob train about 2 h, car about 3.5 h).','From Samarkand drive south over the Takhtakaracha pass toward Shahrisabz and Qarshi (about 2.5 h).','Park near {p} or take a local taxi from the town centre.','Check opening hours on site and allow 1–2 hours for the visit.'],
+ ru:['Выезжайте из Ташкента по трассе на Самарканд (поезд «Афросиаб» около 2 ч, на машине около 3,5 ч).','Из Самарканда двигайтесь на юг через перевал Тахтакарача в сторону Шахрисабза и Карши (около 2,5 ч).','Оставьте машину рядом с «{p}» или возьмите местное такси из центра города.','Уточните часы работы на месте и заложите на осмотр 1–2 часа.'],
+ uz:['Toshkentdan Samarqand yo\'nalishidagi magistralda chiqing (Afrosiyob poyezdi taxminan 2 soat, avtomobilda taxminan 3,5 soat).','Samarqanddan Taxtaqoracha dovoni orqali janubga, Shahrisabz va Qarshi tomon yuring (taxminan 2,5 soat).','{p} yaqinida mashinani qoldiring yoki shahar markazidan mahalliy taksi oling.','Ish vaqtini joyida aniqlang va ko\'rish uchun 1–2 soat ajrating.']}}
+function northSteps(){return {
+ en:['Leave Tashkent on the highway south toward Guliston (about 1.5 h).','Follow signs for Guliston, the regional centre. Regional trains also run between Tashkent and Guliston.','Continue to {p} and stop near the entrance or the riverside parking.','Allow 1–2 hours for the visit and check conditions on site.'],
+ ru:['Выезжайте из Ташкента по трассе на юг в сторону Гулистана (около 1,5 ч).','Следуйте указателям на Гулистан, центр области. Между Ташкентом и Гулистаном ходят и пригородные поезда.','Продолжайте путь до «{p}» и остановитесь у входа или на прибрежной парковке.','Заложите на посещение 1–2 часа и уточните обстановку на месте.'],
+ uz:['Toshkentdan Guliston tomon janubga yo\'nalgan magistralda chiqing (taxminan 1,5 soat).','Viloyat markazi Guliston belgilariga amal qiling. Toshkent–Guliston yo\'nalishida poyezdlar ham qatnaydi.','{p} tomon davom eting va kirish yoki qirg\'oqdagi to\'xtash joyida to\'xtang.','Ko\'rish uchun 1–2 soat ajrating va joyidagi holatni aniqlang.']}}
+function fillSteps(s,d){var o={};LANGS.forEach(function(l){o[l]=s[l].map(function(x){return x.replace('{p}',d.name[l])})});return o}
+function seed(){
+  var d=[
+   {id:'d1',region:'qashqadaryo',cats:['history','food'],scene:'palace',dish:'f1',dist:540,hours:7,transport:'both',q:'Ak-Saray Palace Shahrisabz',
+    name:{uz:'Oqsaroy saroyi',ru:'Дворец Ак-Сарай',en:'Ak-Saray Palace'},
+    desc:{uz:'Amir Temur 1380-yilda tug\'ilgan shahri Shahrisabzda o\'zining ulug\' saroyini qurishni boshlagan. Bugun faqat darvoza minoralari saqlanib qolgan, ularning balandligi hozir ham taxminan 38 metr, yuzasida ko\'k, oq va tilla rangli koshin parchalari ko\'rinadi. Ertalab erta keling: quyosh g\'ishtni oltin tusga kiritadi, maydon esa deyarli bo\'sh bo\'ladi.',
+          ru:'Амир Темур начал строить свой великий дворец в родном Шахрисабзе в 1380 году. Сохранились только башни портала высотой около 38 метров, на них видны фрагменты синей, белой и золотой глазури. Приходите рано утром: кирпич в этот час становится янтарным, а площадь почти пуста.',
+          en:'Amir Temur began building his grand palace in his hometown Shahrisabz in 1380. Only the gate towers survive, still about 38 meters high, with fragments of blue, white and gold tile on their faces. Come early in the morning, when the light turns the brick amber and the square is nearly empty.'}},
+   {id:'d2',region:'qashqadaryo',cats:['history','pilgrim'],scene:'mosque',dish:'f1',dist:540,hours:7,transport:'both',q:'Kok Gumbaz Mosque Shahrisabz',
+    name:{uz:'Ko\'k Gumbaz masjidi',ru:'Мечеть Кок-Гумбаз',en:'Kok Gumbaz Mosque'},
+    desc:{uz:'Mirzo Ulug\'bek 1435-yilda Dorut Tilovat yodgorlik majmuasi tarkibida Ko\'k Gumbaz masjidini qurdirgan. Uning zangori gumbazi eski Shahrisabzning belgisi, soyali hovlisi esa ko\'rinishlar orasida dam olish uchun qulay.',
+          ru:'Улугбек возвёл мечеть Кок-Гумбаз в 1435 году в составе мемориального комплекса Дорут-Тилават. Её голубой купол стал символом старого Шахрисабза, а тенистый двор удобен для отдыха между осмотрами.',
+          en:'Ulugh Beg built the Kok Gumbaz Mosque in 1435 as part of the Dorut Tilovat memorial complex. Its blue dome is the landmark of old Shahrisabz, and the shaded courtyard is a good place to rest between sights.'}},
+   {id:'d3',region:'qashqadaryo',cats:['pilgrim'],scene:'shrine',dish:'f2',dist:560,hours:7.5,transport:'both',q:'Langar Ota Qashqadaryo',
+    name:{uz:'Langar Ota ziyoratgohi',ru:'Святыня Лангар-Ата',en:'Langar Ota Sanctuary'},
+    desc:{uz:'Langar Ota — Qashqadaryodagi sokin ziyoratgoh. Bu yerga duo qilish va soyada o\'tirib dam olish uchun kelishadi. Kiyimingiz kamtarona bo\'lsin, kichik hadya uchun naqd pul oling va tashrif uchun qulay vaqtni mahalliy aholidan so\'rang.',
+          ru:'Лангар-Ата — тихое место паломничества в Кашкадарье, куда приезжают помолиться и посидеть в тени. Одевайтесь скромно, возьмите наличные для небольших пожертвований и спросите местных, в какое время лучше приходить.',
+          en:'Langar Ota is a quiet pilgrimage site in Qashqadaryo, where visitors come to pray and to sit in the shade. Dress modestly, bring cash for small offerings and ask locals about the best hour to visit.'}},
+   {id:'d4',region:'qashqadaryo',cats:['nature'],scene:'nature',dish:'f2',dist:530,hours:6.5,transport:'car',q:'Kitab Geological Reserve',
+    name:{uz:'Kitob geologik qo\'riqxonasi',ru:'Китабский геологический заповедник',en:'Kitob Geological Reserve'},
+    desc:{uz:'Shahrisabz yaqinidagi Kitob geologik qo\'riqxonasi — dunyo geologlari o\'rganadigan qadimiy tog\' jinslari qatlamlarining ochiq osmon ostidagi daftari. Qisqa yo\'llar burmalangan tosh devorlariga va tog\' etaklari ustidagi keng manzaralarga olib boradi.',
+          ru:'Китабский геологический заповедник возле Шахрисабза — открытая летопись древних пород, которую изучают геологи со всего мира. Короткие тропы ведут к складчатым каменным стенам и широким видам на предгорья.',
+          en:'Kitob Geological Reserve near Shahrisabz is an open-air record of ancient rock layers that geologists study from around the world. Short trails lead to folded stone walls and wide views over the foothills.'}},
+   {id:'d5',region:'sirdaryo',cats:['history','nature'],scene:'bridge',dish:'f4',dist:130,hours:2,transport:'both',q:'Amir Temur Bridge Syrdarya',
+    name:{uz:'Amir Temur ko\'prigi',ru:'Мост Амира Темура',en:'Amir Temur Bridge'},
+    desc:{uz:'Sirdaryo viloyatiga olib boruvchi yo\'lda Amir Temur nomidagi daryo o\'tish joyi. Quyosh botganda qirg\'oqqa to\'xtang: Sirdaryoning keng ko\'rinishi va suv ustidagi kechki nur sizni kutadi.',
+          ru:'Переправа через реку, названная в честь Амира Темура, на дороге в Сырдарьинскую область. Остановитесь на берегу на закате: вас ждёт широкий вид на Сырдарью и вечерний свет на воде.',
+          en:'A river crossing named after Amir Temur on the road into the Sirdaryo region. Stop at the bank at sunset for broad views of the Syrdarya and the evening light on the water.'}},
+   {id:'d6',region:'sirdaryo',cats:['nature','food'],scene:'dam',dish:'f3',dist:170,hours:2.5,transport:'car',q:'Sardoba Reservoir',
+    name:{uz:'Sardoba suv ombori',ru:'Сардобинское водохранилище',en:'Sardoba Reservoir'},
+    desc:{uz:'Sardoba suv ombori — mintaqadagi eng yirik suv havzalaridan biri, 2020-yildagi to\'g\'on yorilishidan keyin qayta tiklangan. Qirg\'oq piknik va yangi baliq uchun mashhur; soya kam, shuning uchun bosh kiyim oling.',
+          ru:'Сардобинское водохранилище — один из крупнейших водоёмов региона, восстановленный после прорыва плотины в 2020 году. Берег любят за пикники и свежую рыбу; тени мало, поэтому возьмите головной убор.',
+          en:'Sardoba Reservoir is one of the largest bodies of water in the region, rebuilt after the 2020 dam breach. The shoreline is popular for picnics and fresh fish. Bring a hat, as there is little shade.'}},
+   {id:'d7',region:'sirdaryo',cats:['nature','food'],scene:'river',dish:'f3',dist:120,hours:1.75,transport:'both',q:'Syrdarya riverbank Guliston',
+    name:{uz:'Sirdaryo qirg\'og\'i, Guliston',ru:'Берег Сырдарьи, Гулистан',en:'Syrdarya Riverbank, Guliston'},
+    desc:{uz:'Guliston yaqinidagi Sirdaryo qirg\'og\'i — oilalar baliq tutadigan, go\'sht pishiradigan va quyosh botishini tomosha qiladigan tekis, yam-yashil sayr yo\'li. Yo\'l bo\'yidagi baliq restoranlari kunlik ovni taklif qiladi.',
+          ru:'Берег Сырдарьи возле Гулистана — ровная зелёная набережная, где семьи ловят рыбу, жарят мясо и смотрят закат. В рыбных ресторанах вдоль дороги подают улов дня.',
+          en:'The Syrdarya riverbank near Guliston is a flat, green stretch where families fish, grill and watch the sunset. Fish restaurants along the road serve the day\'s catch.'}}
+  ];
+  d.forEach(function(x){x.steps=fillSteps(x.region==='qashqadaryo'?southSteps():northSteps(),x)});
+  var f=[
+   {id:'f1',region:'qashqadaryo',scene:'dish',name:{uz:'Tandir Kesh',ru:'Тандыр-кеш',en:'Tandir Kesh'},
+    ing:{uz:['qo\'y go\'shti','piyoz','tuz','zira','qora murch'],ru:['баранина','лук','соль','зира','чёрный перец'],en:['lamb','onion','salt','cumin','black pepper']},
+    story:{uz:'Shahrisabz qadimda Kesh deb atalgan. Qo\'y go\'shti sopol tandir ichida osib, yog\'i erib, po\'sti qarsillagunicha sekin pishiriladi.',ru:'Шахрисабз раньше назывался Кеш. Баранину подвешивают внутри глиняного тандыра и медленно томят, пока жир не растопится, а корочка не захрустит.',en:'Shahrisabz was once called Kesh. Lamb hangs inside a clay tandir and roasts slowly until the fat renders and the skin crackles.'},
+    where:{uz:'Oqsaroy maydoni atrofidagi choyxonalar va Shahrisabzning eski bozori.',ru:'Чайханы вокруг площади Ак-Сарая и старый базар Шахрисабза.',en:'Teahouses around the Ak-Saray square and the old bazaar in Shahrisabz.'}},
+   {id:'f2',region:'qashqadaryo',scene:'dish',name:{uz:'Qashqadaryo jizzi',ru:'Кашкадарьинский жиз',en:'Qashqadaryo Jizz'},
+    ing:{uz:['qo\'y go\'shti','dumba yog\'i','piyoz','tuz','qora murch'],ru:['баранина','курдючный жир','лук','соль','чёрный перец'],en:['lamb','tail fat','onion','salt','black pepper']},
+    story:{uz:'Qozonda go\'sht va yog\' bo\'laklarini qovurib tayyorlanadigan to\'yimli taom. Issiq holda yangi non bilan beriladi va sovuq kunlarda ayniqsa suyiladi.',ru:'Сытное блюдо из обжаренных в казане кусочков мяса и жира. Подаётся горячим со свежей лепёшкой и особенно любимо в холодные дни.',en:'A hearty kazan dish of fried lamb and fat, served hot with fresh non and especially loved on cold days.'},
+    where:{uz:'Qarshi–Shahrisabz yo\'li bo\'yidagi oshxonalar.',ru:'Придорожные столовые на трассе Карши — Шахрисабз.',en:'Roadside oshxonas on the Qarshi–Shahrisabz road.'}},
+   {id:'f3',region:'sirdaryo',scene:'dish',name:{uz:'Guliston baliqi',ru:'Гулистанская рыба',en:'Guliston Fish'},
+    ing:{uz:['daryo baliqi','piyoz','tuz','qora murch','ko\'katlar'],ru:['речная рыба','лук','соль','чёрный перец','зелень'],en:['river fish','onion','salt','black pepper','fresh herbs']},
+    story:{uz:'Sirdaryo havzasida tutilgan baliq piyoz va ko\'katlar bilan qovuriladi yoki pishiriladi, non va ko\'k choy bilan beriladi.',ru:'Рыбу из бассейна Сырдарьи жарят или запекают с луком и зеленью и подают с лепёшкой и зелёным чаем.',en:'Fish from the Syrdarya basin, fried or baked with onion and herbs, served with bread and green tea.'},
+    where:{uz:'Guliston qirg\'og\'i bo\'yidagi va Sardoba suv ombori yaqinidagi baliq restoranlari.',ru:'Рыбные рестораны на набережной Гулистана и возле Сардобинского водохранилища.',en:'Fish restaurants along the Guliston riverfront and near Sardoba Reservoir.'}},
+   {id:'f4',region:'sirdaryo',scene:'dish',name:{uz:'Guliston samsasi',ru:'Гулистанская самса',en:'Guliston Samsa'},
+    ing:{uz:['qo\'y go\'shti','piyoz','zira','xamir','tuz'],ru:['баранина','лук','зира','тесто','соль'],en:['lamb','onion','cumin','dough','salt']},
+    story:{uz:'Tandirda pishirilgan, maydalangan go\'sht va piyozli xamir taomi. Qatlamli qobig\'i yengil, tagi esa biroz kuygan bo\'ladi.',ru:'Выпечка из тандыра с рубленой бараниной и луком. Корочка слоёная и лёгкая, а низ слегка подрумянен до тёмного цвета.',en:'Tandoor-baked pastry filled with chopped lamb, onion and cumin. The crust is flaky and the base lightly charred.'},
+    where:{uz:'Gulistonning bozor peshtaxtalari, tushgacha borish yaxshi.',ru:'Прилавки на базаре Гулистана, лучше до полудня.',en:'Bazaar stalls in Guliston, best before noon.'}}
+  ];
+  var views={d1:1280,d2:940,d3:610,d4:420,d5:380,d6:870,d7:730};
+  var routes={d1:212,d2:150,d3:96,d4:61,d5:70,d6:158,d7:120};
+  return {v:1,dest:d,food:f,stats:{views:views,routes:routes}};
+}
+var db=(function(){
+  try{var r=JSON.parse(sGet('qs_db_v1')||'null');if(r&&r.v===1&&r.dest&&r.food&&r.stats)return r}catch(e){}
+  return seed();
+})();
+function save(){sSet('qs_db_v1',JSON.stringify(db))}
+function byId(list,id){for(var i=0;i<list.length;i++)if(list[i].id===id)return list[i];return null}
+
+var state={region:'all',cat:'all',q:''};
+var isAdmin=false;
+var adminTab='dash',adminView='list',editId=null,delArm=null;
+var modalFn=null;
+
+function fmtDur(h){
+  h=Number(h)||0;var hh=Math.floor(h),mm=Math.round((h-hh)*60);
+  if(mm===60){hh+=1;mm=0}
+  if(!hh)return mm+' '+t('min');
+  return hh+' '+t('h')+(mm?' '+mm+' '+t('min'):'');
+}
+function fmtNum(n){return Number(n||0).toLocaleString(lang==='ru'?'ru-RU':lang==='uz'?'uz-UZ':'en-US')}
+var ICON={
+  eye:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+  pin:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+  clock:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  car:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16V11l2-5h10l2 5v5M3 16h18M7 19v-3M17 19v-3"/><circle cx="8" cy="13.5" r=".6"/><circle cx="16" cy="13.5" r=".6"/></svg>',
+  train:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l2-4M15 21l-2-4"/></svg>'
+};
+function transportLabel(x){return x==='car'?t('car'):x==='train'?t('train'):t('both')}
+function transportIcons(x){return (x==='train'?ICON.train:x==='car'?ICON.car:ICON.car+ICON.train)}
+function mapsSearch(d){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.q||L(d.name))}
+function mapsDir(d){return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('Tashkent, Uzbekistan')+'&destination='+encodeURIComponent(d.q||L(d.name))+'&travelmode=driving'}
+
+var toastT;
+function toast(m){var el=$('#toast');el.textContent=m;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show')},2600)}
+
+function applyI18n(){
+  document.documentElement.lang=lang;
+  $$('[data-i18n]').forEach(function(el){el.textContent=t(el.getAttribute('data-i18n'))});
+  $('#heroTitle').innerHTML=t('heroTitle');
+  $$('[data-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===lang)});
+}
+function matches(txt){return txt.toLowerCase().indexOf(state.q.toLowerCase())>-1}
+function destVisible(d){
+  if(state.region!=='all'&&d.region!==state.region)return false;
+  if(state.cat!=='all'&&d.cats.indexOf(state.cat)<0)return false;
+  if(state.q){
+    var dish=byId(db.food,d.dish);
+    var hay=[L(d.name),L(d.desc),t('r_'+d.region),dish?L(dish.name):''].concat(LANGS.map(function(l){return d.name[l]||''})).join(' ');
+    if(!matches(hay))return false;
+  }
+  return true;
+}
+function foodVisible(f){
+  if(state.region!=='all'&&f.region!==state.region)return false;
+  if(state.cat!=='all'&&state.cat!=='food')return false;
+  if(state.q){
+    var hay=[L(f.name),L(f.story),L(f.where),t('r_'+f.region)].concat(LANGS.map(function(l){return f.name[l]||''}),(f.ing&&f.ing[lang])||[]).join(' ');
+    if(!matches(hay))return false;
+  }
+  return true;
+}
+function renderFilters(){
+  var rs=['all','qashqadaryo','sirdaryo'];
+  $('#regionSeg').innerHTML=rs.map(function(r){return '<button data-act="region" data-v="'+r+'" aria-pressed="'+(state.region===r)+'">'+esc(r==='all'?t('all'):t('r_'+r))+'</button>'}).join('');
+  var cs=['all','pilgrim','nature','history','food'];
+  $('#chips').innerHTML=cs.map(function(c){return '<button class="chip" data-act="cat" data-v="'+c+'" aria-pressed="'+(state.cat===c)+'"><i></i>'+esc(c==='all'?t('all'):t('c_'+c))+'</button>'}).join('');
+}
+function cardHTML(d){
+  var dish=byId(db.food,d.dish);
+  var v=db.stats.views[d.id]||0;
+  return '<article class="card" tabindex="0" data-act="detail" data-id="'+esc(d.id)+'">'+
+   '<div class="mwrap"><div class="media" style="background-image:'+scene(d.scene)+'"></div><span class="tag">'+esc(t('r_'+d.region))+'</span><span class="views" title="'+esc(t('views'))+'">'+ICON.eye+fmtNum(v)+'</span></div>'+
+   '<div class="cbody"><div class="cats">'+d.cats.map(function(c){return '<span>'+esc(t('c_'+c))+'</span>'}).join('')+'</div>'+
+   '<h3>'+esc(L(d.name))+'</h3><p class="d">'+esc(L(d.desc))+'</p>'+
+   (dish?'<div class="dishline"><b>'+esc(t('dish'))+'</b><span>'+esc(L(dish.name))+'</span></div>':'')+
+   '<div class="meta"><span>'+ICON.pin+fmtNum(d.dist)+' '+esc(t('km'))+'</span><span>'+ICON.clock+esc(fmtDur(d.hours))+'</span><span>'+transportIcons(d.transport)+'</span></div>'+
+   '<div class="actions"><button class="btn ghost" data-act="detail" data-id="'+esc(d.id)+'">'+esc(t('details'))+'</button><button class="btn" data-act="route" data-id="'+esc(d.id)+'">'+esc(t('route'))+'</button></div></div></article>';
+}
+function renderGrid(){
+  var list=db.dest.filter(destVisible);
+  $('#grid').innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">'+esc(t('noResults'))+'</div>';
+}
+function foodHTML(f){
+  return '<article class="fcard"><div class="fimg" style="background-image:'+scene(f.scene)+'"></div><div class="fb">'+
+   '<span class="reg">'+esc(t('r_'+f.region))+'</span><h3>'+esc(L(f.name))+'</h3>'+
+   '<div class="ings">'+((f.ing&&(f.ing[lang]&&f.ing[lang].length?f.ing[lang]:f.ing.en||f.ing.uz)||[]).map(function(i){return '<span>'+esc(i)+'</span>'}).join(''))+'</div>'+
+   '<div class="lbl">'+esc(t('story'))+'</div><p>'+esc(L(f.story))+'</p>'+
+   '<div class="lbl">'+esc(t('where'))+'</div><p>'+esc(L(f.where))+'</p></div></article>';
+}
+function renderFood(){
+  var list=db.food.filter(foodVisible);
+  $('#foodgrid').innerHTML=list.length?list.map(foodHTML).join(''):'<div class="empty">'+esc(t('noResults'))+'</div>';
+}
+function renderCounts(){$('#nDest').textContent=db.dest.length;$('#nDish').textContent=db.food.length}
+function renderTools(){
+  var u=currentUser();
+  var h='';
+  if(u)h+='<span class="userchip">'+esc(t('welcome'))+'<b>'+esc(u.name)+'</b></span><button class="btn ghost sm" data-act="logout">'+esc(t('logout'))+'</button>';
+  else h+='<button class="btn ghost sm" data-act="auth" data-v="login">'+esc(t('login'))+'</button><button class="btn sm" data-act="auth" data-v="reg">'+esc(t('register'))+'</button>';
+  h+='<button class="btn ghost sm" data-act="admin">'+esc(isAdmin?t('dash'):t('admin'))+'</button>';
+  $('#tools').innerHTML=h;
+}
+function renderAll(){applyI18n();renderTools();renderFilters();renderGrid();renderFood();renderCounts()}
+
+function openModal(fn,cls){
+  modalFn=fn;
+  var m=$('#modal');m.className='modal'+(cls?' '+cls:'');
+  paintModal();
+  $('#overlay').hidden=false;
+  document.body.style.overflow='hidden';
+  var c=$('.mclose',m);if(c)c.focus();
+}
+function paintModal(){
+  var m=$('#modal');var top=m.scrollTop;
+  m.innerHTML='<button class="mclose" data-act="close" aria-label="'+esc(t('close'))+'">&times;</button>'+modalFn();
+  m.scrollTop=top;
+}
+function closeModal(){$('#overlay').hidden=true;modalFn=null;document.body.style.overflow='';delArm=null}
+
+function detailModal(id){
+  var d=byId(db.dest,id);if(!d)return;
+  db.stats.views[id]=(db.stats.views[id]||0)+1;save();renderGrid();
+  openModal(function(){return detailHTML(d)});
+}
+function detailHTML(d){
+  var dish=byId(db.food,d.dish);
+  return '<div class="mhero" style="background-image:'+scene(d.scene)+'"></div><div class="mbody">'+
+   '<div class="cats">'+['<span>'+esc(t('r_'+d.region))+'</span>'].concat(d.cats.map(function(c){return '<span>'+esc(t('c_'+c))+'</span>'})).join('')+'</div>'+
+   '<h2>'+esc(L(d.name))+'</h2><p class="lead">'+esc(L(d.desc))+'</p>'+
+   '<div class="kv"><div><small>'+esc(t('distance'))+'</small><b>'+fmtNum(d.dist)+' '+esc(t('km'))+'</b></div><div><small>'+esc(t('duration'))+'</small><b>'+esc(fmtDur(d.hours))+'</b></div><div><small>'+esc(t('transport'))+'</small><b style="font-size:1rem;font-family:var(--font-body)">'+esc(transportLabel(d.transport))+'</b></div></div>'+
+   (dish?'<div class="callout"><h4>'+esc(t('dish'))+'</h4><strong>'+esc(L(dish.name))+'</strong><p>'+esc(L(dish.story))+'</p><p><b style="color:var(--gold);font-weight:500">'+esc(t('where'))+':</b> '+esc(L(dish.where))+'</p></div>':'')+
+   '<div class="btnrow"><button class="btn" data-act="route" data-id="'+esc(d.id)+'">'+esc(t('route'))+'</button><a class="btn ghost" target="_blank" rel="noopener" href="'+esc(mapsSearch(d))+'">'+esc(t('viewOnMap'))+'</a></div></div>';
+}
+function routeModal(id,fromDetail){
+  var d=byId(db.dest,id);if(!d)return;
+  db.stats.routes[id]=(db.stats.routes[id]||0)+1;save();
+  openModal(function(){return routeHTML(d)});
+}
+function routeHTML(d){
+  var steps=(d.steps&&(d.steps[lang]&&d.steps[lang].length?d.steps[lang]:(d.steps.en&&d.steps.en.length?d.steps.en:d.steps.uz)))||[];
+  return '<div class="mbody" style="padding-top:26px">'+
+   '<div class="cats"><span>'+esc(t('route'))+'</span></div><h2>'+esc(L(d.name))+'</h2>'+
+   '<div class="line"><div class="node"><i></i>Tashkent</div><div class="bar"><span>'+fmtNum(d.dist)+' '+esc(t('km'))+'</span></div><div class="node end"><i></i>'+esc(L(d.name))+'</div></div>'+
+   '<div class="kv"><div><small>'+esc(t('distance'))+'</small><b>'+fmtNum(d.dist)+' '+esc(t('km'))+'</b></div><div><small>'+esc(t('duration'))+'</small><b>'+esc(fmtDur(d.hours))+'</b></div><div><small>'+esc(t('transport'))+'</small><b style="font-size:1rem;font-family:var(--font-body);display:flex;gap:8px;align-items:center">'+transportIcons(d.transport)+esc(transportLabel(d.transport))+'</b></div></div>'+
+   '<div><div class="hint" style="margin-bottom:10px;letter-spacing:.12em;text-transform:uppercase">'+esc(t('steps'))+'</div><ol class="steps">'+steps.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ol></div>'+
+   '<div class="btnrow"><a class="btn gold" target="_blank" rel="noopener" href="'+esc(mapsDir(d))+'">'+esc(t('openMaps'))+'</a><button class="btn ghost" data-act="detail-back" data-id="'+esc(d.id)+'">'+esc(t('back'))+'</button></div></div>';
+}
+
+function users(){try{return JSON.parse(sGet('qs_users')||'[]')}catch(e){return []}}
+function currentUser(){try{return JSON.parse(sGet('qs_session')||'null')}catch(e){return null}}
+function sha(s){
+  try{
+    if(window.crypto&&crypto.subtle){
+      return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')});
+    }
+  }catch(e){}
+  return Promise.resolve('p:'+btoa(unescape(encodeURIComponent(s))));
+}
+var authTab='login',authErr='';
+function authModal(tab){authTab=tab;authErr='';openModal(authHTML,'narrow')}
+function authHTML(){
+  var reg=authTab==='reg';
+  return '<div class="mbody" style="padding-top:34px"><div><h2>'+esc(t('authTitle'))+'</h2><p class="hint" style="margin-top:6px">'+esc(t('authSub'))+'</p></div>'+
+   '<div class="seg" style="align-self:flex-start"><button data-act="authtab" data-v="login" aria-pressed="'+(!reg)+'">'+esc(t('tabLogin'))+'</button><button data-act="authtab" data-v="reg" aria-pressed="'+reg+'">'+esc(t('tabReg'))+'</button></div>'+
+   '<form class="form" id="authForm" novalidate>'+
+   (reg?'<label class="fld"><span>'+esc(t('nameL'))+'</span><input id="a_name" autocomplete="name"></label>':'')+
+   '<label class="fld"><span>'+esc(t('emailL'))+'</span><input id="a_email" type="email" autocomplete="email"></label>'+
+   '<label class="fld"><span>'+esc(t('passL'))+'</span><input id="a_pass" type="password" autocomplete="'+(reg?'new-password':'current-password')+'"></label>'+
+   '<div class="err" role="alert">'+esc(authErr)+'</div>'+
+   '<button class="btn" type="submit">'+esc(reg?t('submitReg'):t('submitLogin'))+'</button></form></div>';
+}
+function submitAuth(){
+  var reg=authTab==='reg';
+  var name=reg?$('#a_name').value.trim():'';
+  var email=$('#a_email').value.trim().toLowerCase();
+  var pass=$('#a_pass').value;
+  function fail(k){authErr=t(k);paintModal();var f=$('#a_email');if(f)f.value=email;}
+  if(!email||!pass||(reg&&!name))return fail('errFill');
+  if(reg&&pass.length<6)return fail('errPass');
+  sha(email+'|'+pass).then(function(h){
+    var us=users();
+    if(reg){
+      if(us.some(function(u){return u.email===email}))return fail('errExists');
+      var u={name:name,email:email,hash:h};us.push(u);sSet('qs_users',JSON.stringify(us));
+      sSet('qs_session',JSON.stringify({name:name,email:email}));
+    }else{
+      var f=us.filter(function(u){return u.email===email&&u.hash===h})[0];
+      if(!f)return fail('errCreds');
+      sSet('qs_session',JSON.stringify({name:f.name,email:f.email}));
+    }
+    closeModal();renderTools();toast(t('welcome')+currentUser().name);
+  });
+}
+
+var adminErr='';
+function adminLoginModal(){adminErr='';openModal(adminLoginHTML,'narrow')}
+function adminLoginHTML(){
+  return '<div class="mbody" style="padding-top:34px"><div><h2>'+esc(t('adminTitle'))+'</h2><p class="hint" style="margin-top:6px">'+esc(t('adminSub'))+'</p></div>'+
+   '<form class="form" id="adminForm" novalidate>'+
+   '<label class="fld"><span>'+esc(t('adminUser'))+'</span><input id="ad_user" autocomplete="username"></label>'+
+   '<label class="fld"><span>'+esc(t('adminPass'))+'</span><input id="ad_pass" type="password" autocomplete="current-password"></label>'+
+   '<div class="err" role="alert">'+esc(adminErr)+'</div>'+
+   '<button class="btn gold" type="submit">'+esc(t('login'))+'</button><p class="hint">'+esc(t('adminHint'))+'</p></form></div>';
+}
+function submitAdmin(){
+  var u=$('#ad_user').value.trim(),p=$('#ad_pass').value;
+  if(u==='admin'&&p==='admin123'){isAdmin=true;adminTab='dash';adminView='list';renderTools();toast(t('adminOn'));openModal(adminHTML,'wide')}
+  else{adminErr=t('adminWrong');paintModal();$('#ad_user').value=u}
+}
+function openAdmin(){if(isAdmin){adminView='list';openModal(adminHTML,'wide')}else adminLoginModal()}
+
+function barRows(rows,max,cls){
+  if(!rows.length)return '<p class="note">'+esc(t('emptyList'))+'</p>';
+  return rows.map(function(r){return '<div class="bar-row '+(cls||'')+'"><span>'+esc(r.n)+'</span><em>'+fmtNum(r.v)+'</em><div><i style="width:'+(max?Math.max(3,Math.round(r.v/max*100)):0)+'%"></i></div></div>'}).join('');
+}
+function dashHTML(){
+  var tv=0,tr=0,k;
+  for(k in db.stats.views)tv+=db.stats.views[k]||0;
+  for(k in db.stats.routes)tr+=db.stats.routes[k]||0;
+  var byR=db.dest.map(function(d){return {n:L(d.name),v:db.stats.routes[d.id]||0}}).sort(function(a,b){return b.v-a.v}).slice(0,5);
+  var byV=db.dest.map(function(d){return {n:L(d.name),v:db.stats.views[d.id]||0}}).sort(function(a,b){return b.v-a.v}).slice(0,5);
+  return '<div class="tiles"><div class="tile g"><small>'+esc(t('totalViews'))+'</small><b>'+fmtNum(tv)+'</b></div>'+
+   '<div class="tile e"><small>'+esc(t('totalDest'))+'</small><b>'+db.dest.length+'</b></div>'+
+   '<div class="tile c"><small>'+esc(t('routeOpens'))+'</small><b>'+fmtNum(tr)+'</b></div>'+
+   '<div class="tile"><small>'+esc(t('totalDish'))+'</small><b>'+db.food.length+'</b></div>'+
+   '<div class="tile"><small>'+esc(t('members'))+'</small><b>'+users().length+'</b></div></div>'+
+   '<div class="panels"><div class="panel"><h4>'+esc(t('popular'))+'</h4>'+barRows(byR,byR[0]&&byR[0].v,'gold')+'</div>'+
+   '<div class="panel"><h4>'+esc(t('mostViewed'))+'</h4>'+barRows(byV,byV[0]&&byV[0].v)+'</div></div>'+
+   '<p class="note">'+esc(t('demoNote'))+'</p>'+
+   '<div class="btnrow"><button class="btn ghost sm" data-act="reset">'+esc(t('reset'))+'</button><button class="btn danger sm" data-act="adminexit">'+esc(t('adminExit'))+'</button></div>';
+}
+function listHTML(kind){
+  var arr=kind==='dest'?db.dest:db.food;
+  var h='<div class="adminbar"><span class="hint">'+arr.length+' · '+esc(kind==='dest'?t('tabDest'):t('tabFood'))+'</span><button class="btn sm" data-act="anew" data-v="'+kind+'">+ '+esc(t('addNew'))+'</button></div><div class="list">';
+  h+=arr.map(function(x){
+    var armed=delArm===kind+x.id;
+    return '<div class="item"><div class="th" style="background-image:'+scene(x.scene)+'"></div><div class="tx"><b>'+esc(L(x.name))+'</b><small>'+esc(t('r_'+x.region))+(kind==='dest'?' · '+fmtNum(x.dist)+' '+esc(t('km'))+' · '+fmtNum(db.stats.views[x.id]||0)+' '+esc(t('views')):'')+'</small></div>'+
+     '<div class="btns"><button class="btn ghost sm" data-act="aedit" data-v="'+kind+'" data-id="'+esc(x.id)+'">'+esc(t('edit'))+'</button><button class="btn danger sm" data-act="adel" data-v="'+kind+'" data-id="'+esc(x.id)+'">'+esc(armed?t('confirmDel'):t('del'))+'</button></div></div>';
+  }).join('');
+  return h+'</div>';
+}
+function tri(id,label,vals,multi){
+  var h='<fieldset class="fld"><legend>'+esc(label)+'</legend><div class="tri">';
+  LANGS.forEach(function(l){
+    var v=vals&&vals[l]!=null?vals[l]:'';
+    h+='<label><b>'+l.toUpperCase()+'</b>'+(multi?'<textarea id="'+id+'_'+l+'">'+esc(v)+'</textarea>':'<input id="'+id+'_'+l+'" value="'+esc(v)+'">')+'</label>';
+  });
+  return h+'</div></fieldset>';
+}
+function destFormHTML(){
+  var d=editId?byId(db.dest,editId):null;
+  var sc=['palace','mosque','shrine','nature','bridge','dam','river'];
+  var stepsV={};LANGS.forEach(function(l){stepsV[l]=(d&&d.steps&&d.steps[l]||[]).join('\n')});
+  return '<form class="form" id="destForm" novalidate><h2 style="font-size:1.5rem">'+esc(d?t('editDest'):t('newDest'))+'</h2>'+
+   tri('f_name',t('fName'),d&&d.name,false)+tri('f_desc',t('fDesc'),d&&d.desc,true)+
+   '<div class="two"><label class="fld"><span>'+esc(t('fRegion'))+'</span><select id="f_region">'+['qashqadaryo','sirdaryo'].map(function(r){return '<option value="'+r+'"'+((d?d.region:'qashqadaryo')===r?' selected':'')+'>'+esc(t('r_'+r))+'</option>'}).join('')+'</select></label>'+
+   '<label class="fld"><span>'+esc(t('fTransport'))+'</span><select id="f_transport">'+['car','train','both'].map(function(r){return '<option value="'+r+'"'+((d?d.transport:'both')===r?' selected':'')+'>'+esc(transportLabel(r))+'</option>'}).join('')+'</select></label>'+
+   '<label class="fld"><span>'+esc(t('fDist'))+'</span><input id="f_dist" type="number" min="0" step="1" value="'+esc(d?d.dist:'')+'"></label>'+
+   '<label class="fld"><span>'+esc(t('fHours'))+'</span><input id="f_hours" type="number" min="0" step="0.25" value="'+esc(d?d.hours:'')+'"></label>'+
+   '<label class="fld"><span>'+esc(t('fScene'))+'</span><select id="f_scene">'+sc.map(function(r){return '<option value="'+r+'"'+((d?d.scene:'nature')===r?' selected':'')+'>'+esc(t('s_'+r))+'</option>'}).join('')+'</select></label>'+
+   '<label class="fld"><span>'+esc(t('fDish'))+'</span><select id="f_dish"><option value="">'+esc(t('none'))+'</option>'+db.food.map(function(f){return '<option value="'+esc(f.id)+'"'+(d&&d.dish===f.id?' selected':'')+'>'+esc(L(f.name))+'</option>'}).join('')+'</select></label></div>'+
+   '<fieldset class="fld"><legend>'+esc(t('fCats'))+'</legend><div class="checks">'+['pilgrim','nature','history','food'].map(function(c){return '<label><input type="checkbox" name="fcat" value="'+c+'"'+(d&&d.cats.indexOf(c)>-1?' checked':'')+'>'+esc(t('c_'+c))+'</label>'}).join('')+'</div></fieldset>'+
+   '<label class="fld"><span>'+esc(t('fMaps'))+'</span><input id="f_q" value="'+esc(d?d.q:'')+'"></label>'+
+   tri('f_steps',t('fSteps'),stepsV,true)+
+   '<div class="err" id="formErr" role="alert"></div>'+
+   '<div class="btnrow"><button class="btn" type="submit">'+esc(t('save'))+'</button><button class="btn ghost" type="button" data-act="acancel">'+esc(t('cancel'))+'</button></div></form>';
+}
+function foodFormHTML(){
+  var f=editId?byId(db.food,editId):null;
+  var ingV={};LANGS.forEach(function(l){ingV[l]=(f&&f.ing&&f.ing[l]||[]).join(', ')});
+  return '<form class="form" id="foodForm" novalidate><h2 style="font-size:1.5rem">'+esc(f?t('editDish'):t('newDish'))+'</h2>'+
+   tri('g_name',t('fName'),f&&f.name,false)+tri('g_ing',t('fIng'),ingV,false)+tri('g_story',t('fStory'),f&&f.story,true)+tri('g_where',t('fWhere'),f&&f.where,true)+
+   '<label class="fld"><span>'+esc(t('fRegion'))+'</span><select id="g_region">'+['qashqadaryo','sirdaryo'].map(function(r){return '<option value="'+r+'"'+((f?f.region:'qashqadaryo')===r?' selected':'')+'>'+esc(t('r_'+r))+'</option>'}).join('')+'</select></label>'+
+   '<div class="err" id="formErr" role="alert"></div>'+
+   '<div class="btnrow"><button class="btn" type="submit">'+esc(t('save'))+'</button><button class="btn ghost" type="button" data-act="acancel">'+esc(t('cancel'))+'</button></div></form>';
+}
+function adminHTML(){
+  var tabs=[['dash',t('dash')],['dest',t('tabDest')],['food',t('tabFood')]];
+  var body=adminView==='form'?(adminTab==='dest'?destFormHTML():foodFormHTML()):(adminTab==='dash'?dashHTML():listHTML(adminTab));
+  return '<div class="tabs" role="tablist">'+tabs.map(function(x){return '<button data-act="atab" data-v="'+x[0]+'" aria-pressed="'+(adminTab===x[0])+'">'+esc(x[1])+'</button>'}).join('')+'</div><div class="mbody">'+body+'</div>';
+}
+function g(id){var el=document.getElementById(id);return el?el.value.trim():''}
+function triVals(id){var o={};LANGS.forEach(function(l){o[l]=g(id+'_'+l)});return o}
+function anyVal(o){return LANGS.some(function(l){return o[l]})}
+function saveDest(){
+  var name=triVals('f_name');
+  if(!anyVal(name)){document.getElementById('formErr').textContent=t('needName');return}
+  var desc=triVals('f_desc');
+  var st=triVals('f_steps');var steps={};LANGS.forEach(function(l){steps[l]=st[l].split('\n').map(function(s){return s.trim()}).filter(Boolean)});
+  var cats=$$('input[name=fcat]:checked').map(function(c){return c.value});
+  var d=editId?byId(db.dest,editId):null;
+  var obj={id:d?d.id:'d'+Date.now(),region:g('f_region'),cats:cats,scene:g('f_scene'),dish:g('f_dish'),dist:Number(g('f_dist'))||0,hours:Number(g('f_hours'))||0,transport:g('f_transport'),q:g('f_q')||name.en||name.uz||name.ru,name:name,desc:desc,steps:steps};
+  if(d)db.dest[db.dest.indexOf(d)]=obj;else{db.dest.push(obj);db.stats.views[obj.id]=0;db.stats.routes[obj.id]=0}
+  save();adminView='list';renderAll();paintModal();toast(t('saved'));
+}
+function saveFood(){
+  var name=triVals('g_name');
+  if(!anyVal(name)){document.getElementById('formErr').textContent=t('needName');return}
+  var ingRaw=triVals('g_ing');var ing={};LANGS.forEach(function(l){ing[l]=ingRaw[l].split(',').map(function(s){return s.trim()}).filter(Boolean)});
+  var f=editId?byId(db.food,editId):null;
+  var obj={id:f?f.id:'f'+Date.now(),region:g('g_region'),scene:'dish',name:name,ing:ing,story:triVals('g_story'),where:triVals('g_where')};
+  if(f)db.food[db.food.indexOf(f)]=obj;else db.food.push(obj);
+  save();adminView='list';renderAll();paintModal();toast(t('saved'));
+}
+function deleteItem(kind,id){
+  if(kind==='dest'){db.dest=db.dest.filter(function(x){return x.id!==id});delete db.stats.views[id];delete db.stats.routes[id]}
+  else{db.food=db.food.filter(function(x){return x.id!==id});db.dest.forEach(function(d){if(d.dish===id)d.dish=''})}
+  save();renderAll();
+}
+
+document.addEventListener('click',function(e){
+  var lb=e.target.closest('[data-lang]');
+  if(lb){lang=lb.getAttribute('data-lang');sSet('qs_lang',lang);renderAll();if(modalFn&&!$('#overlay').hidden)paintModal();return}
+  if(e.target.id==='overlay'){closeModal();return}
+  var el=e.target.closest('[data-act]');if(!el)return;
+  var act=el.getAttribute('data-act'),id=el.getAttribute('data-id'),v=el.getAttribute('data-v');
+  switch(act){
+    case 'region':state.region=v;renderFilters();renderGrid();renderFood();break;
+    case 'cat':state.cat=v;renderFilters();renderGrid();renderFood();break;
+    case 'detail':detailModal(id);break;
+    case 'detail-back':openModal(function(){return detailHTML(byId(db.dest,id))});break;
+    case 'route':routeModal(id);break;
+    case 'close':closeModal();break;
+    case 'auth':authModal(v);break;
+    case 'authtab':authTab=v;authErr='';paintModal();break;
+    case 'logout':sSet('qs_session','null');renderTools();toast(t('loggedOut'));break;
+    case 'admin':openAdmin();break;
+    case 'adminexit':isAdmin=false;closeModal();renderTools();break;
+    case 'atab':adminTab=v;adminView='list';delArm=null;paintModal();break;
+    case 'anew':editId=null;adminView='form';paintModal();break;
+    case 'aedit':editId=id;adminView='form';paintModal();break;
+    case 'acancel':adminView='list';paintModal();break;
+    case 'adel':
+      if(delArm===v+id){delArm=null;deleteItem(v,id);paintModal();toast(t('deleted'))}
+      else{delArm=v+id;paintModal()}
+      break;
+    case 'reset':db=seed();save();renderAll();paintModal();toast(t('resetDone'));break;
+  }
+});
+document.addEventListener('submit',function(e){
+  e.preventDefault();
+  var id=e.target.id;
+  if(id==='authForm')submitAuth();
+  else if(id==='adminForm')submitAdmin();
+  else if(id==='destForm')saveDest();
+  else if(id==='foodForm')saveFood();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&!$('#overlay').hidden)closeModal();
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('card')){e.preventDefault();detailModal(e.target.getAttribute('data-id'))}
+});
+$('#q').addEventListener('input',function(e){state.q=e.target.value.trim();renderGrid();renderFood()});
+
+// --- BACKEND API BILAN ISHLASH ---
+
+// 1. Serverdan ma'lumotlarni yuklab olish
+fetch('/api/data')
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data && data.dest && data.food){
+      db = data;
+    }
+    renderAll();
+  })
+  .catch(function(err){
+    console.log("Serverga ulanib bo'lmadi, local ma'lumot ishlatiladi:", err);
+    renderAll();
+  });
+
+// 2. Ma'lumot o'zgarganda serverga yuborish funksiyasi
+var origSave = save;
+save = function(){
+  origSave();
+  fetch('/api/data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(db)
+  }).catch(function(err){ console.log("Serverga saqlashda xatolik:", err); });
+};
+
+})();
+</script>
+
+</body></html>
